@@ -98,15 +98,18 @@ nnoremap <LEADER>O maO<ESC>0d$`a
 " Open the file explorator in new tab
 nnoremap <C-t> :tab new \| :Explore <CR>
 
-" Search center view
-nnoremap N Nzz
-nnoremap n nzz
-
 " Remove arrow keys to take good habits!
 nnoremap <UP> <NOP>
 nnoremap <DOWN> <NOP>
 nnoremap <LEFT> <NOP>
 nnoremap <RIGHT> <NOP>
+
+" Add a ; at the end of the current line
+nnoremap <LEADER>; maA;<ESC>`a
+
+" Remap $ and ^ which are hard to get on azerty
+nnoremap B ^
+nnoremap E $
 
 "-----------------------------    Insert remaps    -----------------------------
 
