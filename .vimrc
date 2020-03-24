@@ -12,9 +12,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-"Code completion
-Plug 'Valloric/YouCompleteMe'
-
 "Bottom line
 Plug 'itchyny/lightline.vim'
 
@@ -30,11 +27,6 @@ Plug 'tpope/vim-surround'
 call plug#end()
 
 " Plugins config
-
-" YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_show_diagnostics_ui = 0
 
 runtime macros/matchit.vim
 
