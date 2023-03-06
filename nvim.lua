@@ -83,10 +83,6 @@ local mapleader = "-"
 
 ---------------------------------    Others    ---------------------------------
 
--- Remove the second bottom line, which become useless with the fancy one
-vim.opt.showmode = false
-vim.opt.laststatus = 2
-
 --==============================================================================
 --                             Section : Editor
 --==============================================================================
@@ -105,19 +101,11 @@ vim.opt.cindent = true
 -- Line numbers
 vim.opt.number = true
 
--- Colon at 80 chars
--- set colorcolumn=81
--- highlight ColorColumn ctermbg=darkgray guibg=darkgrey
--- set textwidth=0
-
 -- Show first occurence when search
 vim.opt.incsearch = true
 
 -- Disable hlsearch
 vim.opt.hlsearch = false
-
--- Usefull to know where the cursor is
--- set cursorline
 
 --==============================================================================
 --                             Section : Others
@@ -127,16 +115,10 @@ vim.opt.hlsearch = false
 -- set nocompatible
 
 -- Directory tree
--- let g:netrw_liststyle = 3
--- let g:netrw_banner = 0
-
--- Enabling :E shortcut by removing useless :ELP
--- let g:loaded_logipat = 1
+vim.g.netrw_liststyle = 3
+vim.g.netrw_banner = false
 
 -- Commands autocomplete like bash
 vim.opt.wildmode = { 'longest', 'list' } 
 vim.opt.wildmenu = true
-
--- remove dellay when go back to normal mode
--- set ttimeoutlen=10
 
