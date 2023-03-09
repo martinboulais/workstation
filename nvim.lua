@@ -2,6 +2,8 @@
 --                              Section : Plugins                                
 --==============================================================================
 
+-----------------------------    Plugins install    ----------------------------
+
 local use = require('packer').use
 require('packer').startup(function(use)
     -- Packer can manage itself
@@ -18,11 +20,14 @@ require('packer').startup(function(use)
 
     -- Display progress info about lsp server
     use 'j-hui/fidget.nvim'
+
+    -- Fuzzy finder
+    use 'junegunn/fzf'
 end)
 
------------------------------    Plugins install    ----------------------------
-
 -- Plugins config
+
+-- lsp
 
 local cmp = require 'cmp'
 cmp.setup {
@@ -69,6 +74,11 @@ require('lspconfig').tsserver.setup({
 require("fidget").setup({})
 
 vim.opt.completeopt = "menuone,noinsert,noselect"
+
+-- Fuzzy finder
+
+vim.env.FZF_DEFAULT_COMMAND = 'rg --files'
+vim.keymap.set("n", "gz", ":FZF<CR>")
 
 --==============================================================================
 --                         Section : personnal maps
