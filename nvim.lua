@@ -50,7 +50,7 @@ cmp.setup {
                 fallback()
             end
         end,
-        ['<S-TAB>'] = function()
+        ['<S-TAB>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
             else
@@ -67,7 +67,12 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('lspconfig').rust_analyzer.setup({
     capabilities = capabilities,
 })
+
 require('lspconfig').tsserver.setup({
+    capabilities = capabilities,
+})
+
+require('lspconfig').clangd.setup({
     capabilities = capabilities,
 })
 
