@@ -50,25 +50,50 @@ cmp.setup {
                 fallback()
             end
         end,
-        ['<S-TAB>'] = function()
+        ['<S-TAB>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
             else
                 fallback()
             end
         end,
-        ['<C-d>'] = cmp.mapping(function() cmp.scroll_docs(4) end, {'i'}),
-        ['<C-u>'] = cmp.mapping(function() cmp.scroll_docs(-4) end, {'i'}),
+        ['gk'] = cmp.mapping(function() cmp.scroll_docs(4) end, {'i'}),
+        ['gj'] = cmp.mapping(function() cmp.scroll_docs(-4) end, {'i'}),
+        ['<leader-f>'] = cmp.mapping(function() cmp.scroll_docs(-4) end, {'i'}),
     }
 }
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- local on_lsp_attach = function(client, attached_buffer)
+-- local bufopts = { noremap=true, silent=true, buffer=attached_buffer }
+-- end
 
 require('lspconfig').rust_analyzer.setup({
     capabilities = capabilities,
 })
+
 require('lspconfig').tsserver.setup({
     capabilities = capabilities,
+})
+
+require('lspconfig').clangd.setup({
+    capabilities = capabilities,
+})
+
+require('lspconfig').lua_ls.setup({
+    capabilities = capabilities,
+    runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+    },
+    workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+    },
+    -- Do not send telemetry data containing a randomized but unique identifier
+    telemetry = {
+        enable = false,
+    },
 })
 
 require("fidget").setup({})
