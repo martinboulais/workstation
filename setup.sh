@@ -11,6 +11,5 @@ ln -sf $PWD/nvim.lua $HOME/.config/nvim/init.lua
 mkdir -p $HOME/.config/alacritty
 ln -sf $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
-# Zellij configuration
-mkdir -p $HOME/.config/zellij
-ln -sf $PWD/zellij.kdl $HOME/.config/zellij/config.kdl
+# lazygit configuration
+ln -sf $PWD/lazygit.yml $HOME/.config/lazygit/config.yml
