@@ -14,3 +14,7 @@ ln -sf $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 # Zellij configuration
 mkdir -p $HOME/.config/zellij
 ln -sf $PWD/zellij.kdl $HOME/.config/zellij/config.kdl
+
+# i3 configuration
+mkdir -p $HOME/.config/i3
+ln -sf $PWD/i3.conf $HOME/.config/i3/config
