@@ -27,7 +27,7 @@
         mode: "0644"
     - name: Load custom Bash configuration
       ansible.builtin.blockinfile:
-        path: "{{ ansible_env.HOME }}/.bashrc"
+        path: "{{ ansible_facts['env']['HOME'] }}/.bashrc"
         marker: "# {mark} ANSIBLE MANAGED BASH CONFIG"
         block: |
           if [ -f "$HOME/.config/bash/bashrc" ]; then

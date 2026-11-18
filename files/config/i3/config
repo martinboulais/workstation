@@ -64,7 +64,7 @@ focus_follows_mouse no
 bindsym $mod+Shift+q kill
 
 # Start dmenu (a program launcher)
-bindsym $mod+s exec --no-startup-id dmenu_run
+bindsym $mod+s exec --no-startup-id dmenu_run -fn 'Fira Code:size=8'
 
 # Start screenshot tool
 bindsym $mod+p exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
