@@ -1,0 +1,21 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Install desktop packages
+      become: true
+      pacman:
+        name:
+          - xorg
+          - xorg-xinit
+          - i3-wm
+          - i3status
+          - i3lock
+          - dmenu
+          - alacritty
+          - ttf-fira-code
+        state: present
+    - name: Deploy i3 config 
+      copy:
+        src: files/config/i3/config
+        dest: ~/.config/i3/config
+        mode: "0644"
