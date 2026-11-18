@@ -13,7 +13,13 @@
           - dmenu
           - alacritty
           - ttf-fira-code
+          - feh
         state: present
+    - name: Deploy wallpaper
+      copy:
+        src: assets/
+        dest: ~/.local/assets/
+        mode: "0644"
     - name: Deploy config files
       copy:
         src: files/config/
