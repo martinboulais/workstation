@@ -1,0 +1,30 @@
+# Use a colored prompt in supported terminals, including Alacritty.
+case "$TERM" in
+    xterm-color|*-256color|alacritty)
+        PS1='\[\033[01;44m\] \u \[\033[01;46m\] \w \[\033[00m\]\n\[\033[01m\]└> \[\033[00m\]'
+        ;;
+    *)
+        PS1='\u@\h:\w\$\n└> '
+        ;;
+esac
+
+# Set the terminal title to user@host: directory.
+case "$TERM" in
+    xterm*|rxvt*)
+        PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+        ;;
+esac
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+alias vi='vim'
+
+# Git
+alias gco='git checkout'
+alias gam='git commit --amend'
+alias gcm='git commit -m'
+alias gpf='git push --force-with-lease'
+alias gfp='git fetch -p'
+alias gst='git status'
+alias gal='git add *'
+alias gtr='git log --graph --all --oneline --max-count=25'
