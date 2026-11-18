@@ -1,7 +1,7 @@
 - hosts: localhost
   connection: local
   tasks:
-    - name: Install desktop packages
+    - name: Install desktop packages on Arch
       become: true
       pacman:
         name:
@@ -15,6 +15,24 @@
           - ttf-fira-code
           - feh
         state: present
+      when: ansible_facts['distribution'] == 'Archlinux'
+    - name: Install desktop packages on Ubuntu
+      become: true
+      apt:
+        name:
+          - xorg
+          - xinit
+          - i3-wm
+          - i3status
+          - i3lock
+          - suckless-tools
+          - alacritty
+          - fonts-firacode
+          - feh
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+      when: ansible_facts['distribution'] == 'Ubuntu'
     - name: Deploy wallpaper
       copy:
         src: assets/
