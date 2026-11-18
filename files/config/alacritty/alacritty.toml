@@ -1,0 +1,40 @@
+[colors.bright]
+black = "#444444"
+blue = "#0092FF"
+cyan = "#67FFF0"
+green = "#ABE15B"
+magenta = "#9A5FEB"
+red = "#FF2740"
+white = "#FFFFFF"
+yellow = "#FFD242"
+
+[colors.normal]
+black = "#232323"
+blue = "#008DF8"
+cyan = "#00D8EB"
+green = "#8CE10B"
+magenta = "#6D43A6"
+red = "#FF000F"
+white = "#FFFFFF"
+yellow = "#FFB900"
+
+[colors.primary]
+background = "#0E1019"
+foreground = "#FFFAF4"
+
+[cursor]
+vi_mode_style = "Block"
+
+[cursor.style]
+blinking = "On"
+shape = "Beam"
+
+[env]
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[font.normal]
+family = "Fira Code"
+
+[window.dimensions]
+columns = 120
+lines = 40

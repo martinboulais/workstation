@@ -14,8 +14,8 @@
           - alacritty
           - ttf-fira-code
         state: present
-    - name: Deploy i3 config 
+    - name: Deploy config files
       copy:
-        src: files/config/i3/config
-        dest: ~/.config/i3/config
+        src: files/config/
+        dest: ~/.config/
         mode: "0644"
