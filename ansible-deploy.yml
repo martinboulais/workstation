@@ -7,6 +7,8 @@
         name:
           - xorg
           - xorg-xinit
+          - greetd
+          - greetd-tuigreet
           - i3-wm
           - i3status
           - i3lock
@@ -15,18 +17,47 @@
           - ttf-fira-code
           - feh
         state: present
+
+    - name: Deploy greetd configuration
+      become: true
+      copy:
+        src: files/etc/greetd/config.toml
+        dest: /etc/greetd/config.toml
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Enable greetd at boot
+      become: true
+      systemd_service:
+        name: greetd.service
+        enabled: true
+
+    - name: Configure console keyboard colemak layout
+      become: true
+      lineinfile:
+        path: /etc/vconsole.conf
+        regexp: '^KEYMAP='
+        line: 'KEYMAP=colemak'
+        create: true
+        owner: root
+        group: root
+        mode: "0644"
+
     - name: Deploy wallpaper
       copy:
         src: assets/
         dest: ~/.local/assets/
         mode: "0644"
+
     - name: Deploy config files
       copy:
         src: files/config/
         dest: ~/.config/
         mode: "0644"
+
     - name: Load custom Bash configuration
-      ansible.builtin.blockinfile:
+      blockinfile:
         path: "{{ ansible_facts['env']['HOME'] }}/.bashrc"
         marker: "# {mark} ANSIBLE MANAGED BASH CONFIG"
         block: |
