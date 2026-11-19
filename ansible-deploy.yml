@@ -16,16 +16,18 @@
           - alacritty
           - ttf-fira-code
           - feh
+          - xf86-input-libinput
         state: present
 
-    - name: Deploy greetd configuration
+    - name: Deploy system-wide configuration
       become: true
       copy:
-        src: files/etc/greetd/config.toml
-        dest: /etc/greetd/config.toml
+        src: files/etc/
+        dest: /etc/
         owner: root
         group: root
         mode: "0644"
+        directory_mode: "0755"
 
     - name: Enable greetd at boot
       become: true
@@ -44,16 +46,16 @@
         group: root
         mode: "0644"
 
+    - name: Deploy user config files
+      copy:
+        src: files/config/
+        dest: ~/.config/
+        mode: "0644"
+
     - name: Deploy wallpaper
       copy:
         src: assets/
         dest: ~/.local/assets/
-        mode: "0644"
-
-    - name: Deploy config files
-      copy:
-        src: files/config/
-        dest: ~/.config/
         mode: "0644"
 
     - name: Load custom Bash configuration
