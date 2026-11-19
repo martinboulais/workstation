@@ -1,3 +1,3 @@
-# configs
+# Workstation configuration
 
-Config files I use
+Ansible configuration to setup my working machines
