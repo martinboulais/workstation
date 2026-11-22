@@ -14,11 +14,12 @@
           - greetd
           - greetd-tuigreet
 
-          # I3 with status bar, lock and dmenu
+          # I3 with status bar, lock, dmenu and nm-applet (network applet)
           - i3-wm
           - i3status
           - i3lock
           - dmenu
+          - network-manager-applet
 
           # Hardware control
           - autorandr
