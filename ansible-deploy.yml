@@ -5,18 +5,31 @@
       become: true
       pacman:
         name:
+          # X Server
           - xorg
           - xorg-xinit
+          - xf86-input-libinput
+
+          # Display manager: tuigreet
           - greetd
           - greetd-tuigreet
+
+          # I3 with status bar, lock and dmenu
           - i3-wm
           - i3status
           - i3lock
           - dmenu
+
+          # Hardware control
+          - autorandr
+
+          # Terminal: alacritty 
           - alacritty
+
+          # Display choices (font, feh for wallpaper)
           - ttf-fira-code
           - feh
-          - xf86-input-libinput
+
         state: present
 
     - name: Deploy system-wide configuration
