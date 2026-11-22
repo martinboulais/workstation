@@ -18,9 +18,6 @@ font pango:Fira Code 10
 # Enable auto xrandr screen management
 exec --no-startup-id autorandr --daemon
 
-# Use US Colemak with Right Alt as AltGr and Caps Lock as Escape
-exec_always --no-startup-id setxkbmap -layout us -variant colemak -option "" -option lv3:ralt_switch -option caps:escape
-
 # Set desktop wallpaper
 exec_always --no-startup-id feh --bg-fill ~/.local/assets/wallpaper.jpg
 
