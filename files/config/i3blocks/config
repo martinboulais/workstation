@@ -4,6 +4,12 @@ interval=120
 separator=true
 separator_block_width=20
 
+[battery]
+command=$HOME/.config/i3blocks/scripts/battery.py
+interval=30
+separator=true
+separator_block_width=15
+
 [date]
 command=date '+%a %d %b %Y'
 interval=60

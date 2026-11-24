@@ -29,7 +29,7 @@
           - bash-completion
 
           # Display choices (font, feh for wallpaper)
-          - ttf-fira-code
+          - ttf-firacode-nerd
           - feh
 
         state: present
