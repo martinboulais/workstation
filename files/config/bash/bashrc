@@ -23,11 +23,18 @@ export EDITOR="$VISUAL"
 alias vi='vim'
 
 # Git
-alias gco='git checkout'
-alias gam='git commit --amend'
-alias gcm='git commit -m'
-alias gpf='git push --force-with-lease'
-alias gfp='git fetch -p'
 alias gst='git status'
-alias gal='git add *'
 alias gtr='git log --graph --all --oneline --max-count=25'
+
+alias gco='git checkout'
+alias gcb='git checkout -b'
+
+alias gal='git add *'
+alias gcm='git commit -m'
+alias gam='git commit --amend'
+
+alias gfp='git fetch -p'
+alias gpf='git push --force-with-lease'
+
+alias gre='git rebase'
+alias gri='git rebase -i'
