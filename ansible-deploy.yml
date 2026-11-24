@@ -16,7 +16,7 @@
 
           # I3 with status bar, lock, dmenu and nm-applet (network applet)
           - i3-wm
-          - i3status
+          - i3blocks
           - i3lock
           - dmenu
           - network-manager-applet
@@ -81,3 +81,9 @@
           if [ -f "$HOME/.config/bash/bashrc" ]; then
               . "$HOME/.config/bash/bashrc"
           fi
+
+    - name: Make i3blocks scripts executable
+      file:
+        path: ~/.config/i3blocks/scripts
+        mode: "0755"
+        recurse: yes

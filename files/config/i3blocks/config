@@ -1,0 +1,16 @@
+[codex]
+command=$HOME/.config/i3blocks/scripts/codex_quota.py
+interval=120
+separator=true
+separator_block_width=20
+
+[date]
+command=date '+%a %d %b %Y'
+interval=60
+separator=true
+separator_block_width=15
+
+[time]
+command=echo "$(date +%H:%M):$(printf '%02d' $(( $(date +%-S) / 5 * 5 )))"
+interval=5
+separator=false
