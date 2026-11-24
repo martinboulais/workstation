@@ -8,6 +8,9 @@ case "$TERM" in
         ;;
 esac
 
+# Enable bash completion
+[ -f /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
+
 # Set the terminal title to user@host: directory.
 case "$TERM" in
     xterm*|rxvt*)
