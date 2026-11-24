@@ -24,8 +24,9 @@
           # Hardware control
           - autorandr
 
-          # Terminal: alacritty 
+          # Terminal: alacritty, add bash completion
           - alacritty
+          - bash-completion
 
           # Display choices (font, feh for wallpaper)
           - ttf-fira-code
