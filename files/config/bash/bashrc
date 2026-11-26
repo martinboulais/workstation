@@ -1,7 +1,9 @@
 # Use a colored prompt in supported terminals, including Alacritty.
 case "$TERM" in
     xterm-color|*-256color|alacritty)
-        PS1='\[\033[01;44m\] \u \[\033[01;46m\] \w \[\033[00m\]\n\[\033[01m\]└> \[\033[00m\]'
+        bg=44
+        [[ -n "$SSH_CONNECTION" ]] && bg=101
+        PS1='\[\033[01;'"${bg}"'m\] \u'"${SSH_CONNECTION:+@\h}"' \[\033[01;46m\] \w \[\033[00m\]\n\[\033[01m\]└> \[\033[00m\]'
         ;;
     *)
         PS1='\u@\h:\w\$\n└> '
@@ -10,13 +12,6 @@ esac
 
 # Enable bash completion
 [ -f /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
-
-# Set the terminal title to user@host: directory.
-case "$TERM" in
-    xterm*|rxvt*)
-        PS1="\[\e]0;\u@\h: \w\a\]$PS1"
-        ;;
-esac
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
